@@ -109,7 +109,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if(segue.identifier as String == "viewLargePhoto"){
+        if(segue.identifier  == "viewLargePhoto") {
             let controller:ViewPhoto = segue.destinationViewController as ViewPhoto
             let indexPath: NSIndexPath = self.collectionView.indexPathForCell(sender as UICollectionViewCell)!
             controller.index = indexPath.item
@@ -171,7 +171,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 let createAssetRequest = PHAssetChangeRequest.creationRequestForAssetFromImage(image)
                 let assetPlaceholder = createAssetRequest.placeholderForCreatedAsset
                 let albumChangeRequest = PHAssetCollectionChangeRequest(forAssetCollection: self.assetCollection, assets: self.photosAsset)
-                albumChangeRequest.addAssets([assetPlaceholder])
+                albumChangeRequest.addAssets([assetPlaceholder!])
                 }, completionHandler: {(success, error)in
                     dispatch_async(dispatch_get_main_queue(), {
                         NSLog("Adding Image to Library -> %@", (success ? "Sucess":"Error!"))
