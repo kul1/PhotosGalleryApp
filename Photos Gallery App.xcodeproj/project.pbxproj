@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A473F7E81A110B7800D09AE7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A473F7E71A110B7800D09AE7 /* MapViewController.swift */; };
+		A473F7EA1A111F5300D09AE7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A473F7E91A111F5300D09AE7 /* CoreLocation.framework */; };
+		A473F7EC1A111F8100D09AE7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A473F7EB1A111F8100D09AE7 /* AssetsLibrary.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		CEEF3A3B196B5402002668C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEF3A3A196B5402002668C0 /* AppDelegate.swift */; };
 		CEEF3A3D196B5402002668C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEF3A3C196B5402002668C0 /* ViewController.swift */; };
 		CEEF3A40196B5402002668C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEF3A3E196B5402002668C0 /* Main.storyboard */; };
@@ -28,6 +31,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A473F7E71A110B7800D09AE7 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		A473F7E91A111F5300D09AE7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		A473F7EB1A111F8100D09AE7 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		CEEF3A35196B5402002668C0 /* Photos Gallery App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Photos Gallery App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEF3A39196B5402002668C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEEF3A3A196B5402002668C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A473F7EC1A111F8100D09AE7 /* AssetsLibrary.framework in Frameworks */,
+				A473F7EA1A111F5300D09AE7 /* CoreLocation.framework in Frameworks */,
 				CEEF3A5A196B5B81002668C0 /* Photos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,6 +72,9 @@
 		CEEF3A2C196B5402002668C0 = {
 			isa = PBXGroup;
 			children = (
+				A473F7EB1A111F8100D09AE7 /* AssetsLibrary.framework */,
+				A473F7E91A111F5300D09AE7 /* CoreLocation.framework */,
+				A473F7E71A110B7800D09AE7 /* MapViewController.swift */,
 				CEEF3A59196B5B81002668C0 /* Photos.framework */,
 				CEEF3A37196B5402002668C0 /* Photos Gallery App */,
 				CEEF3A4A196B5402002668C0 /* Photos Gallery AppTests */,
@@ -221,6 +232,7 @@
 				CEEF3A3D196B5402002668C0 /* ViewController.swift in Sources */,
 				CEEF3A5C196B9D01002668C0 /* PhotoThumbnail.swift in Sources */,
 				CEEF3A58196B578D002668C0 /* ViewPhoto.swift in Sources */,
+				A473F7E81A110B7800D09AE7 /* MapViewController.swift in Sources */,
 				CEEF3A3B196B5402002668C0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,6 +9,8 @@
 
 import UIKit
 import Photos
+import CoreLocation
+import AssetsLibrary
 
 let reuseIdentifier = "PhotoCell"
 let albumName = "App Folder"            //App specific folder name
@@ -48,6 +50,43 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             picker.delegate = self
             picker.allowsEditing = false
             self.presentViewController(picker, animated: true, completion: nil)
+///////////
+        
+        if picker.sourceType == UIImagePickerControllerSourceType.PhotoLibrary
+        {
+            var library = ALAssetsLibrary()
+            library.enumerateGroupsWithTypes(ALAssetsGroupAll, usingBlock: { (group, stop) -> Void in
+                if (group != nil)
+                {
+                    println("Group is not nil")
+                    println(group.valueForProperty(ALAssetsGroupPropertyName))
+                    group.enumerateAssetsUsingBlock
+                        { (asset, index, stop) in
+                            if asset != nil
+                            {
+                                let location: AnyObject! = asset.valueForProperty(ALAssetPropertyLocation)
+                                if location != nil {
+                                    println(location)
+                                }
+                                else
+                                {
+                                    println("location not found")
+                                }
+                            }
+                    }
+                }
+                else
+                {
+                    println("The group is empty!")
+                }
+                })
+                { (error) -> Void in
+                    println("problem loading albums: \(error)")
+            }
+        }
+        
+        
+//////////
     }
     
     @IBOutlet var collectionView : UICollectionView!
