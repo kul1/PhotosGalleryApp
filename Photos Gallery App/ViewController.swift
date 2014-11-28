@@ -199,8 +199,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
 //UIImagePickerControllerDelegate Methods
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: NSDictionary!){
-        let image = info.objectForKey("UIImagePickerControllerOriginalImage") as UIImage
         
+//        let image = info.objectForKey("UIImagePickerControllerOriginalImage") as UIImage
+        let metadata = info[UIImagePickerControllerMediaMetadata] as? NSDictionary
+        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
         //Implement if allowing user to edit the selected image
         //let editedImage = info.objectForKey("UIImagePickerControllerEditedImage") as UIImage
         
