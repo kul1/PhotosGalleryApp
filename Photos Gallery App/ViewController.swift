@@ -209,7 +209,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             PHPhotoLibrary.sharedPhotoLibrary().performChanges({
                 let createAssetRequest = PHAssetChangeRequest.creationRequestForAssetFromImage(image)
                 let assetPlaceholder = createAssetRequest.placeholderForCreatedAsset
-                let albumChangeRequest = PHAssetCollectionChangeRequest(forAssetCollection: self.assetCollection, assets: self.photosAsset)
+                let albumChangeRequest = PHAssetCollectionChangeRequest(forAssetCollection: self.assetCollection, assets: self.photosAsset)!
                 albumChangeRequest.addAssets([assetPlaceholder!])
                 }, completionHandler: {(success, error)in
                     dispatch_async(dispatch_get_main_queue(), {
