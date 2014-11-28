@@ -151,9 +151,17 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         if(segue.identifier  == "viewLargePhoto") {
             let controller:ViewPhoto = segue.destinationViewController as ViewPhoto
             let indexPath: NSIndexPath = self.collectionView.indexPathForCell(sender as UICollectionViewCell)!
+            
+
             controller.index = indexPath.item
             controller.photosAsset = self.photosAsset
             controller.assetCollection = self.assetCollection
+            // Let retrieve asset again
+            let asset: PHAsset = self.photosAsset[indexPath.item] as PHAsset
+            println("Segue ===>asset.createionDate \(asset.creationDate)")
+//            println("valueForProperty(ALAssetPropertyLocation) = \(asset.valueForProperty(ALAssetPropertyLocation)) Text ")
+            println("segue ===>\(asset)")
+
         }
     }
     
@@ -182,6 +190,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         PHImageManager.defaultManager().requestImageForAsset(asset, targetSize: self.assetThumbnailSize, contentMode: .AspectFill, options: nil, resultHandler: {(result, info)in
                 cell.setThumbnailImage(result)
             })
+// Here information from asset
+        println("collectionView ===> asset =  \(asset) ")
+
+//        println("collectionView ===> asset.creationDate = \(asset.creationDate) ")
+        if asset.location != 0 {
+            cell.description = asset.location
+            
+        }
         return cell
     }
     
@@ -200,8 +216,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 //UIImagePickerControllerDelegate Methods
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: NSDictionary!){
         
-//        let image = info.objectForKey("UIImagePickerControllerOriginalImage") as UIImage
-        let metadata = info[UIImagePickerControllerMediaMetadata] as? NSDictionary
+         // http://stackoverflow.com/questions/26391158/getting-metadata-in-swift-by-uiimagepickercontroller?rq=1
+        //let metadata = info[UIImagePickerControllerMediaMetadata] as? NSDictionary
         let image = info[UIImagePickerControllerOriginalImage] as? UIImage
         //Implement if allowing user to edit the selected image
         //let editedImage = info.objectForKey("UIImagePickerControllerEditedImage") as UIImage
