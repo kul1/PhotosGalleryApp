@@ -6,7 +6,16 @@
 //  Copyright (c) 2014 Abbouds Corner. All rights reserved.
 //
 //  Updated to Xcode 6.0.1 GM
+//  Added by Tim Kul
+/*
 
+Article of how to get the pictures
+https://read.amazon.com/?asin=B00PCZMAFQ
+
+1. Allocate and initialize an object of type ALAssetsLibrary
+2. Access the asset by use assetForURL:resultBlock:failureBlock
+3. Release the Asset Library object in step 1
+*/
 import UIKit
 import Photos
 import CoreLocation
@@ -16,7 +25,7 @@ let reuseIdentifier = "PhotoCell"
 let albumName = "App Folder"            //App specific folder name
 
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     var albumFound : Bool = false
     var assetCollection: PHAssetCollection!
     var photosAsset: PHFetchResult!
@@ -66,10 +75,15 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                             {
                                 let location: AnyObject! = asset.valueForProperty(ALAssetPropertyLocation)
                                 if location != nil {
+                                    
+                                    println(group.valueForProperty(ALAssetsGroupPropertyName))
+
                                     println(location)
                                 }
                                 else
                                 {
+                                    println(group.valueForProperty(ALAssetsGroupPropertyName))
+
                                     println("location not found")
                                 }
                             }
@@ -86,7 +100,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         }
         
         
-//////////
+
+        
     }
     
     @IBOutlet var collectionView : UICollectionView!
@@ -195,8 +210,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
 //        println("collectionView ===> asset.creationDate = \(asset.creationDate) ")
         if asset.location != 0 {
-            cell.description = asset.location
-            
+            println("cell.description == asset.location Here  =  \(asset.location)")
         }
         return cell
     }

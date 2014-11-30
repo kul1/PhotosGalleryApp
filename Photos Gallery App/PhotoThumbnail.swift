@@ -12,9 +12,15 @@ class PhotoThumbnail: UICollectionViewCell {
 
     @IBOutlet var imgView : UIImageView!
 
+    @IBOutlet weak var gpsLabel: UITextField! = UITextField()
+    
     
     func setThumbnailImage(thumbnailImage: UIImage){
         self.imgView.image = thumbnailImage
+    }
+    
+    func setThumbmailGps(thumbmailGps: NSString){
+        self.gpsLabel.text = thumbmailGps
     }
     
 }
