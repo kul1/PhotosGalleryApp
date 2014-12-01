@@ -175,6 +175,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             let asset: PHAsset = self.photosAsset[indexPath.item] as PHAsset
             println("Segue ===>asset.createionDate \(asset.creationDate)")
 //            println("valueForProperty(ALAssetPropertyLocation) = \(asset.valueForProperty(ALAssetPropertyLocation)) Text ")
+            println("valueForProperty(asset.location) = \(asset.location) Text ")
+
             println("segue ===>\(asset)")
 
         }
@@ -231,7 +233,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: NSDictionary!){
         
          // http://stackoverflow.com/questions/26391158/getting-metadata-in-swift-by-uiimagepickercontroller?rq=1
-        //let metadata = info[UIImagePickerControllerMediaMetadata] as? NSDictionary
+//        let metadata = info[UIImagePickerControllerMediaMetadata] as? NSDictionary
         let image = info[UIImagePickerControllerOriginalImage] as? UIImage
         //Implement if allowing user to edit the selected image
         //let editedImage = info.objectForKey("UIImagePickerControllerEditedImage") as UIImage
