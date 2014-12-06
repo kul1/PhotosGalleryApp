@@ -63,12 +63,13 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         if picker.sourceType == UIImagePickerControllerSourceType.PhotoLibrary
         {
+            println("Here btnPhotoAlbum pressed")
             var library = ALAssetsLibrary()
             library.enumerateGroupsWithTypes(ALAssetsGroupAll, usingBlock: { (group, stop) -> Void in
                 if (group != nil)
                 {
                     println("Group is not nil")
-                    println(group.valueForProperty(ALAssetsGroupPropertyName))
+                    println("Album Name  = \(group.valueForProperty(ALAssetsGroupPropertyName))  ")
                     group.enumerateAssetsUsingBlock
                         { (asset, index, stop) in
                             if asset != nil
@@ -174,10 +175,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             // Let retrieve asset again
             let asset: PHAsset = self.photosAsset[indexPath.item] as PHAsset
             println("Segue ===>asset.createionDate \(asset.creationDate)")
-//            println("valueForProperty(ALAssetPropertyLocation) = \(asset.valueForProperty(ALAssetPropertyLocation)) Text ")
-            println("valueForProperty(asset.location) = \(asset.location) Text ")
+            println("valueForProperty(asset.location) = \(asset.location)  ")
 
-            println("segue ===>\(asset)")
+
 
         }
     }
@@ -229,11 +229,10 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     
     
-//UIImagePickerControllerDelegate Methods
+//UIImagePickerControllerDelegate Methods 
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingMediaWithInfo info: NSDictionary!){
         
-         // http://stackoverflow.com/questions/26391158/getting-metadata-in-swift-by-uiimagepickercontroller?rq=1
-//        let metadata = info[UIImagePickerControllerMediaMetadata] as? NSDictionary
+
         let image = info[UIImagePickerControllerOriginalImage] as? UIImage
         //Implement if allowing user to edit the selected image
         //let editedImage = info.objectForKey("UIImagePickerControllerEditedImage") as UIImage
